@@ -34,6 +34,12 @@ startVPN () {
   fi
 }
 
+installNewToken () {
+  TOKEN=$(/opt/cstorm-scripts/imap-client.sh)
+  echo "${TOKEN}" > /etc/openvpn/cstorm-creds-conf
+  echo "thisisnotapassword" >> /etc/openvpn/cstorm-creds-conf
+}
+
 DATE_TIME="date"
 START_DATE_TIME=$(eval "${DATE_TIME}")
 echo "==== START VPN CHECK ===="
@@ -56,7 +62,8 @@ if [[ $? -ne 0 ]]; then
 else
   NS=$(eval "${NS_CMD}")
   echo "Local nameserver detected: ${NS}, VPN leak detected!"
-  echo "Check to see if the latest cstorm token is configured in /etc/openvpn/cstorm-creds-conf"
+  echo "Attempting to download and install the latest token!"
+  installNewToken
   QB_PID=$(eval "${QB_PID_CMD}")
   stopQbittorrent "${QB_PID}"
   echo "Attempting to start VPN..."
