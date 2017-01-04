@@ -28,6 +28,8 @@ startVPN () {
 
   if [ "${VPN_STATE}" == "active" ]; then
     echo "VPN is already running..."
+    echo "Restarting VPN service to attempt to resolve DNS leak..."
+    systemctl restart openvpn@cstorm.service
   else
     echo "VPN not running, starting..."
     systemctl start openvpn@cstorm.service
