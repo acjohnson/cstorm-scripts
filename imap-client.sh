@@ -10,8 +10,7 @@ ID_CMD="curl -s -k --url \"${URI}\" --user ${USERNAME}:${PASSWORD} --request \"$
 ID=$(eval "${ID_CMD}")
 
 BODY_CMD="curl -vs -k --url \"${URI}\" --user ${USERNAME}:${PASSWORD} --request \"FETCH ${ID} BODY[TEXT]\" 2>&1 \
-          | grep '[a-zA-Z0-9]\{5\}-[a-zA-Z0-9]\{5\}-[a-zA-Z0-9]\{5\}-[a-zA-Z0-9]\{5\}' \
-          | awk '{print \$NF}'"
+          | grep -o '[a-zA-Z0-9]\{5\}-[a-zA-Z0-9]\{5\}-[a-zA-Z0-9]\{5\}-[a-zA-Z0-9]\{5\}'"
 
 BODY=$(eval "${BODY_CMD}")
 echo "${BODY}"
