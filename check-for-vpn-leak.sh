@@ -52,7 +52,7 @@ VPN_STATE_CMD="systemctl is-active openvpn@cstorm.service"
 NS_CMD="grep -v ^# /etc/resolv.conf | grep ^nameserver | head -1 | awk '{print $2}'"
 
 # Check to see if VPN is working
-NS_CHECK_CMD="grep -v ^# /etc/resolv.conf | grep ^nameserver | head -1 | grep 192.168 > /dev/null"
+NS_CHECK_CMD="grep -v ^# /etc/resolv.conf | grep ^nameserver | head -1 | egrep '192\.168|127\.0' > /dev/null"
 eval "${NS_CHECK_CMD}"
 
 if [[ $? -ne 0 ]]; then
