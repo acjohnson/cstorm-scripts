@@ -1,0 +1,4 @@
+export USERNAME='user'
+export PASSWORD='secret'
+export URI='imaps://mail.example.com/INBOX'
+export REQUEST='SEARCH FROM sender@gmail.com'
