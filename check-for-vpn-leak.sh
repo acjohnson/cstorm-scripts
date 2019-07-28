@@ -38,8 +38,8 @@ startVPN () {
 
 installNewToken () {
   TOKEN=$(/root/cstorm-scripts/imap-client.sh)
-  echo "${TOKEN}" > /etc/openvpn/cstorm-creds-conf
-  echo "thisisnotapassword" >> /etc/openvpn/cstorm-creds-conf
+  echo "${TOKEN}" > /etc/openvpn/cstoken
+  echo "thisisnotapassword" >> /etc/openvpn/cstoken
 }
 
 DATE_TIME="date"
