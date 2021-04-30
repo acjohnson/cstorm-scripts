@@ -1,0 +1,2 @@
+export VPN_TOKEN="xxxxx-xxxxx-xxxxx-xxxxx"
+export VPN_PASSWORD="secret"
