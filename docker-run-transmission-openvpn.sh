@@ -33,4 +33,4 @@
   --log-driver json-file \
   --log-opt max-size=10m \
   -p 9091:9091 \
-  haugene/transmission-openvpn
+  haugene/transmission-openvpn:latest
