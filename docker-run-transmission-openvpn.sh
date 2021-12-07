@@ -5,6 +5,8 @@
 /bin/docker kill transmission-openvpn
 /bin/docker rm transmission-openvpn
 
+#/bin/docker pull haugene/transmission-openvpn:latest
+
 /bin/docker run -d \
   --name transmission-openvpn \
   --cap-add NET_ADMIN \
